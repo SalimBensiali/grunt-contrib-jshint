@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     // Merge JSHint options from a specified jshintrc file.
     if (options.jshintrc) {
       var rc = grunt.file.readJSON(options.jshintrc);
-      grunt.util._.defaults(options, rc);
+      options = grunt.util._.merge(rc, options);
       delete options.jshintrc;
     }
     // If globals weren't specified, initialize them as an empty object.
